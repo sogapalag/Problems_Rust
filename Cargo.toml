@@ -1,0 +1,15 @@
+[package]
+name = "Problems_Rust"
+version = "0.1.0"
+authors = ["Zhaopeng Yan <yan-zp@foxmail.com>"]
+edition = "2018"
+
+[dependencies]
+primal = "0.2.3"
+num-integer = "0.1.39"
+num = "0.2.0"
+num-bigint = "0.2.2"
+num-traits = "0.2.6"
+num-iter = "0.1.37"
+chrono = "0.4.6"
+itertools = "0.8.0"
