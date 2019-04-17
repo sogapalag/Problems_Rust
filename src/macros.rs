@@ -36,3 +36,32 @@ macro_rules! read {
         }
     }};
 }
+
+#[macro_export]
+macro_rules! cin {
+    () => {};
+    ($e0:expr) => {
+        let stdin = std::io::stdin();
+        $e0 = String::from_utf8(
+            std::io::Read::bytes(stdin.lock())
+                .map(|c| c.unwrap())
+                .skip_while(|c| c.is_ascii_whitespace())
+                .take_while(|c| !c.is_ascii_whitespace())
+                .collect())
+            .expect("string")
+            .parse().expect("valid parse");
+    };
+    ($e0:expr, $($ei:tt)*) => {
+        let stdin = std::io::stdin();
+        $e0 = String::from_utf8(
+            std::io::Read::bytes(stdin.lock())
+                .map(|c| c.unwrap())
+                .skip_while(|c| c.is_ascii_whitespace())
+                .take_while(|c| !c.is_ascii_whitespace())
+                .collect())
+            .expect("string")
+            .parse().expect("valid parse");
+        cin!($($ei)*);
+    };
+}
+
